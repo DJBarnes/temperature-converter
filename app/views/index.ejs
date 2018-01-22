@@ -16,13 +16,13 @@
 <body>
   <div class="container">
 
-    <% if (formErrors.messages.length > 0) { %>
+    <% if (formDataErrorObject.formErrors.messages.length > 0) { %>
       <div class="row justify-content-start">
         <div class="col-6">
           <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Errors!</strong> The following errors need to be fixed.
             <ul>
-              <% formErrors.messages.forEach(function(message) { %>
+              <% formDataErrorObject.formErrors.messages.forEach(function(message) { %>
                 <li>
                   <%=message %>
                 </li>
@@ -44,8 +44,8 @@
             <div class="col-6">
               <div class="form-group">
                 <label for="convertTemperature">Convert:</label>
-                <input class="form-control yellowBackground <%=formErrors.convertClass%>" type="text" name="convertTemperature" id="convertTemperature"
-                  placeholder="Temperature To Convert" value="<%=formData.amountToConvert %>">
+                <input class="form-control yellowBackground <%=formDataErrorObject.formErrors.convertClass%>" type="text" name="convertTemperature"
+                  id="convertTemperature" placeholder="Temperature To Convert" value="<%=formDataErrorObject.formData.amountToConvert %>">
               </div>
             </div>
           </div>
@@ -54,19 +54,23 @@
               <h2>From</h2>
               <div class="form-group">
                 <div class="form-check">
-                  <input class="form-check-input <%=formErrors.fromClass%>" type="radio" name="fromRadios" id="fromCelsius" value="1" <%=formData.fromUnit.celsius%>>
+                  <input class="form-check-input <%=formDataErrorObject.formErrors.fromClass%>" type="radio" name="fromRadios" id="fromCelsius"
+                    value="1" <%=formDataErrorObject.formData.fromUnit.celsius%>>
                   <label class="form-check-label" for="fromCelsius">Celsius</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input <%=formErrors.fromClass%>" type="radio" name="fromRadios" id="fromFarenheit" value="2" <%=formData.fromUnit.farenheit%>>
+                  <input class="form-check-input <%=formDataErrorObject.formErrors.fromClass%>" type="radio" name="fromRadios" id="fromFarenheit"
+                    value="2" <%=formDataErrorObject.formData.fromUnit.farenheit%>>
                   <label class="form-check-label" for="fromFarenheit">Farenheit</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input <%=formErrors.fromClass%>" type="radio" name="fromRadios" id="fromKelvin" value="3" <%=formData.fromUnit.kelvin%>>
+                  <input class="form-check-input <%=formDataErrorObject.formErrors.fromClass%>" type="radio" name="fromRadios" id="fromKelvin"
+                    value="3" <%=formDataErrorObject.formData.fromUnit.kelvin%>>
                   <label class="form-check-label" for="fromKelvin">Kelvin</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input <%=formErrors.fromClass%>" type="radio" name="fromRadios" id="fromRankine" value="4" <%=formData.fromUnit.rankine%>>
+                  <input class="form-check-input <%=formDataErrorObject.formErrors.fromClass%>" type="radio" name="fromRadios" id="fromRankine"
+                    value="4" <%=formDataErrorObject.formData.fromUnit.rankine%>>
                   <label class="form-check-label" for="fromRankine">Rankine</label>
                 </div>
               </div>
@@ -76,19 +80,23 @@
               <h2>To</h2>
               <div class="form-group">
                 <div class="form-check">
-                  <input class="form-check-input <%=formErrors.toClass%>" type="radio" name="toRadios" id="toCelsius" value="1" <%=formData.toUnit.celsius%>>
+                  <input class="form-check-input <%=formDataErrorObject.formErrors.toClass%>" type="radio" name="toRadios" id="toCelsius" value="1"
+                    <%=formDataErrorObject.formData.toUnit.celsius%>>
                   <label class="form-check-label" for="toCelsius">Celsius</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input <%=formErrors.toClass%>" type="radio" name="toRadios" id="toFarenheit" value="2" <%=formData.toUnit.farenheit%>>
+                  <input class="form-check-input <%=formDataErrorObject.formErrors.toClass%>" type="radio" name="toRadios" id="toFarenheit"
+                    value="2" <%=formDataErrorObject.formData.toUnit.farenheit%>>
                   <label class="form-check-label" for="toFarenheit">Farenheit</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input <%=formErrors.toClass%>" type="radio" name="toRadios" id="toKelvin" value="3" <%=formData.toUnit.kelvin%>>
+                  <input class="form-check-input <%=formDataErrorObject.formErrors.toClass%>" type="radio" name="toRadios" id="toKelvin" value="3"
+                    <%=formDataErrorObject.formData.toUnit.kelvin%>>
                   <label class="form-check-label" for="toKelvin">Kelvin</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input <%=formErrors.toClass%>" type="radio" name="toRadios" id="toRankine" value="4" <%=formData.toUnit.rankine%>>
+                  <input class="form-check-input <%=formDataErrorObject.formErrors.toClass%>" type="radio" name="toRadios" id="toRankine" value="4"
+                    <%=formDataErrorObject.formData.toUnit.rankine%>>
                   <label class="form-check-label" for="toRankine">Rankine</label>
                 </div>
               </div>
@@ -103,14 +111,14 @@
         <div class="row">
           <div class="col-6">
             <h2 class="text-center">
-              <%=formData.convertedAnswer%>
+              <%=formDataErrorObject.formData.convertedAnswer%>
             </h2>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
             <h3 class="text-center">
-              <%=formData.conversionFormula%>
+              <%=formDataErrorObject.formData.conversionFormula%>
             </h3>
           </div>
         </div>
