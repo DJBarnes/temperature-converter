@@ -16,6 +16,7 @@
 <body>
   <div class="container">
 
+    <!-- Validation Error Section-->
     <% if (formDataErrorObject.formErrors.messages.length > 0) { %>
       <div class="row justify-content-start">
         <div class="col-6">
@@ -35,11 +36,13 @@
         </div>
       </div>
       <% } %>
+        <!-- End Validation Error Section-->
 
         <form method="POST" action="/" id="temperature-converter-form">
 
           <h1>Temperature Converter</h1>
 
+          <!--Text Input Number To Convert-->
           <div class="row justify-content-start">
             <div class="col-6">
               <div class="form-group">
@@ -49,7 +52,9 @@
               </div>
             </div>
           </div>
+
           <div class="row justify-content-start">
+            <!--From Radio Button Section-->
             <div class="col-3">
               <h2>From</h2>
               <div class="form-group">
@@ -76,6 +81,7 @@
               </div>
             </div>
 
+            <!--To Radio Button Section-->
             <div class="col-3">
               <h2>To</h2>
               <div class="form-group">
@@ -102,12 +108,16 @@
               </div>
             </div>
           </div>
+
+          <!--Submit Button-->
           <div class="row justify-content-start">
             <div class="col-6">
               <button class="btn btn-block">Convert</button>
             </div>
           </div>
         </form>
+
+        <!--Answer Section-->
         <div class="row">
           <div class="col-6">
             <h2 class="text-center">
@@ -115,6 +125,8 @@
             </h2>
           </div>
         </div>
+
+        <!--Formula Section-->
         <div class="row">
           <div class="col-6">
             <h3 class="text-center">
@@ -124,7 +136,6 @@
         </div>
   </div>
 
-  <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
