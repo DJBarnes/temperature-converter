@@ -34,9 +34,6 @@ exports.calculate = function (req, res) {
 
         //Do the conversion and set the answer and formula
         convertTemperature(req.body, formDataErrorObject.formData);
-
-        formDataErrorObject.formData.convertedAnswer = 32;
-        formDataErrorObject.formData.conversionFormula = 'F = C*(9/5)+32';
     }
 
     //Add all of the form data to the session
@@ -218,49 +215,103 @@ var convertRankineTo = function (body, formData) {
 };
 
 var convertCelsiusToFarenheit = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = (tempToConvert * (9.0 / 5.0)) + 32.0;
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°C = " + Number(result).toFixed(2) + "°F";
+    formData.conversionFormula = "[°F] = ([°C] x (9/5)) + 32";
 };
 
 var convertCelsiusToKelvin = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = tempToConvert + 273.15;
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°C = " + Number(result).toFixed(2) + "°K";
+    formData.conversionFormula = "[°K] = [°C] + 273.15";
 };
 
 var convertCelsiusToRankine = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = (tempToConvert + 273.15) * (9.0 / 5.0);
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°C = " + Number(result).toFixed(2) + "°R";
+    formData.conversionFormula = "[°R] = ([°C] + 273.15) x (9/5)";
 };
 
+
+
 var convertFarenheitToCelsius = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = (tempToConvert - 32.0) / (9.0 / 5.0);
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°F = " + Number(result).toFixed(2) + "°C";
+    formData.conversionFormula = "[°C] = ([°F] - 32) / (9/5)";
 };
 
 var convertFarenheitToKelvin = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = (tempToConvert + 459.67) / (9.0 / 5.0);
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°F = " + Number(result).toFixed(2) + "°K";
+    formData.conversionFormula = "[°K] = ([°F] + 459.67) / (9/5)";
 };
 
 var convertFarenheitToRankine = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = tempToConvert + 459.67;
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°F = " + Number(result).toFixed(2) + "°R";
+    formData.conversionFormula = "[°R] = [°F] + 459.67";
 };
 
+
+
 var convertKelvinToCelsius = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = tempToConvert - 273.15;
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°K = " + Number(result).toFixed(2) + "°C";
+    formData.conversionFormula = "[°C] = [°K] - 273.15";
 };
 
 var convertKelvinToFarenheit = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = (tempToConvert * (9.0 / 5.0)) - 459.67;
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°K = " + Number(result).toFixed(2) + "°F";
+    formData.conversionFormula = "[°F] = ([°K] x (9/5) - 459.67";
 };
 
 var convertKelvinToRankine = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = tempToConvert * (9.0 / 5.0);
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°K = " + Number(result).toFixed(2) + "°R";
+    formData.conversionFormula = "[°R] = [°K] x (9/5)";
 };
 
+
+
 var convertRankineToCelsius = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = tempToConvert - 491.67 * (5.0 / 9.0);
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°R = " + Number(result).toFixed(2) + "°C";
+    formData.conversionFormula = "[°C] = ([°R] - (32 + 459.67)) × (5/9)";
 };
 
 var convertRankineToFarenheit = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = tempToConvert - 459.67;
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°R = " + Number(result).toFixed(2) + "°F";
+    formData.conversionFormula = "[°F] = [°R] - 459.67";
 };
 
 var convertRankineToKelvin = function (body, formData) {
-    //
+    var tempToConvert = body.convertTemperature;
+    var result = tempToConvert * (5.0 / 9.0);
+    formData.convertedAnswer = Number(tempToConvert).toFixed(2) +
+        "°R = " + Number(result).toFixed(2) + "°K";
+    formData.conversionFormula = "[°K] = [°R] x (5/9)";
 };
